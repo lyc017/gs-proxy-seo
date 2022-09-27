@@ -1,7 +1,6 @@
 <template>
   <div>
-    是五月哈rt566
-    <Tutorial/>
+首页
   </div>
 
 </template>
