@@ -1,14 +1,15 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'gs-proxy-seo',
+    title: '选风云',
     htmlAttrs: {
       lang: 'en'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      { hid: 'description', name: 'description', content: '描述' },
+      { hid: 'keyword', name: 'keyword', content: '关键字' },
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
@@ -35,8 +36,12 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/proxy',
+    '@nuxtjs/router',
+    'cookie-universal-nuxt'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
