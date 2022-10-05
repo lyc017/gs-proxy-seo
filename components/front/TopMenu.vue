@@ -1,25 +1,25 @@
 <template>
   <div class="front-top-menu">
-<!--    <div class="main-contain">-->
-<!--      <div class="flex justify-between align-middle">-->
-<!--        <router-link to="/" class="ftm-logo animate__animated animate__swing">-->
-<!--          <el-image alt="代理ip服务公司 LOGO" :src="require('@/static/img/logo/header-logo.png')"></el-image>-->
-<!--        </router-link>-->
-<!--        <div class="flex align-middle">-->
-<!--          <div class="ftm-menu flex">-->
-<!--            <router-link :to="item.path" :class="getActive(item)" v-for="(item, index) in menus"-->
-<!--                         :key="index">{{item.name}}-->
-<!--            </router-link>-->
-<!--          </div>-->
-<!--          <el-button type="primary" round size="small" v-if="token" @click="goToIndex('/index')">会员中心-->
-<!--          </el-button>-->
-<!--          <template v-else>-->
-<!--            <el-button type="primary" round size="small" @click="openLogin('register')">注册</el-button>-->
-<!--            <el-button type="primary" round size="small" @click="openLogin('login')">登录</el-button>-->
-<!--          </template>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
+    <div class="main-contain">
+      <div class="flex justify-between align-middle">
+        <router-link to="/" class="ftm-logo animate__animated animate__swing">
+          <el-image alt="代理ip服务公司 LOGO" :src="require('@/static/img/logo/header-logo.png')"></el-image>
+        </router-link>
+        <div class="flex align-middle">
+          <div class="ftm-menu flex">
+            <router-link :to="item.path" :class="getActive(item)" v-for="(item, index) in menus"
+                         :key="index">{{item.name}}
+            </router-link>
+          </div>
+          <el-button type="primary" round size="small" v-if="token" @click="goToIndex('/index')">会员中心
+          </el-button>
+          <template v-else>
+            <el-button type="primary" round size="small" @click="openLogin('register')">注册</el-button>
+            <el-button type="primary" round size="small" @click="openLogin('login')">登录</el-button>
+          </template>
+        </div>
+      </div>
+    </div>
 
 <!--    <login :show.sync="login.showSt" :resource="login.resource"></login>-->
   </div>
@@ -47,52 +47,52 @@
         token: ''
       }
     },
-    // watch: {
-    //   '$route'(to, from) {
-    //     this.current = this.$route.fullPath
-    //   }
-    // },
-    // mounted() {
+    watch: {
+      '$route'(to, from) {
+        this.current = this.$route.fullPath
+      }
+    },
+    mounted() {
     //   this.token = this.$store.getters.token()
-    //   this.current = this.$route.fullPath
-    // },
-    // components: {
-    //   Login
-    // },
-    // methods: {
-    //   openLogin(resource) {
-    //     this.login = {
-    //       showSt: true,
-    //       resource
-    //     }
-    //   },
-    //   goToIndex(url) {
-    //     let token = this.$store.getters.token()
-    //     if (token) {
-    //       this.$router.push(url)
-    //     } else {
-    //       this.openLogin('login')
-    //     }
-    //   },
-    //   getActive(item) {
-    //     let classStr = ''
-    //     if (this.current.indexOf('library') > -1) {
-    //       // 文档中心
-    //       if (item.path.indexOf('library') > -1) {
-    //         classStr = 'active'
-    //       }
-    //     } else if (this.current.indexOf('information') > -1) {
-    //       if (item.path.indexOf('information') > -1) {
-    //         classStr = 'active'
-    //       }
-    //     } else {
-    //       if (item.path === this.current) {
-    //         classStr = 'active'
-    //       }
-    //     }
-    //     return classStr
-    //   }
-    // }
+      this.current = this.$route.fullPath
+    },
+    components: {
+      Login
+    },
+    methods: {
+      openLogin(resource) {
+        this.login = {
+          showSt: true,
+          resource
+        }
+      },
+      goToIndex(url) {
+        let token = this.$store.getters.token()
+        if (token) {
+          this.$router.push(url)
+        } else {
+          this.openLogin('login')
+        }
+      },
+      getActive(item) {
+        let classStr = ''
+        if (this.current.indexOf('library') > -1) {
+          // 文档中心
+          if (item.path.indexOf('library') > -1) {
+            classStr = 'active'
+          }
+        } else if (this.current.indexOf('information') > -1) {
+          if (item.path.indexOf('information') > -1) {
+            classStr = 'active'
+          }
+        } else {
+          if (item.path === this.current) {
+            classStr = 'active'
+          }
+        }
+        return classStr
+      }
+    }
 
   }
 </script>
