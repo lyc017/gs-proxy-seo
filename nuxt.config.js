@@ -19,7 +19,8 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    'element-ui/lib/theme-chalk/index.css'
+    'element-ui/lib/theme-chalk/index.css',
+    '@/static/css/common.less'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -40,8 +41,13 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/proxy',
     '@nuxtjs/router',
+    '@nuxtjs/style-resources',
     'cookie-universal-nuxt'
+
   ],
+  styleResources: {
+    less: ['./static/css/base.less']
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {

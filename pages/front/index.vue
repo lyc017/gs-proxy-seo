@@ -1,22 +1,20 @@
 <template>
-<!--  <div>123</div>-->
-  <div className="index-main" alt="代理ip服务公司">
-<!--    首页12345-->
-<!--&lt;!&ndash;    <top-menu></top-menu>&ndash;&gt;-->
-<!--    <div className="im-box">-->
-<!--&lt;!&ndash;      <Consult></Consult>&ndash;&gt;-->
-<!--&lt;!&ndash;      <keep-alive>&ndash;&gt;-->
-<!--&lt;!&ndash;        <router-view v-if="$route.meta.keepAlive" v-wechat-title="$route.meta.title" replace></router-view>&ndash;&gt;-->
-<!--&lt;!&ndash;      </keep-alive>&ndash;&gt;-->
-<!--&lt;!&ndash;      <router-view v-if="!$route.meta.keepAlive" v-wechat-title="$route.meta.title" replace></router-view>&ndash;&gt;-->
-<!--    </div>-->
+  <div class="index-main" alt="代理ip服务公司">
+    <top-menu></top-menu>
+    <div class="im-box">
+      <Consult></Consult>
+<!--      <keep-alive>-->
+<!--        <router-view v-if="$route.meta.keepAlive" v-wechat-title="$route.meta.title" replace></router-view>-->
+<!--      </keep-alive>-->
+<!--      <router-view v-if="!$route.meta.keepAlive" v-wechat-title="$route.meta.title" replace></router-view>-->
+    </div>
     <bottom-menu v-if="bottomSt"></bottom-menu>
   </div>
 </template>
 
 <script>
-  // import topMenu from '@/views/front/components/TopMenu'
-  // import Consult from './components/Consult'
+  import topMenu from '@/components/front/TopMenu'
+  import Consult from '@/components/front/Consult'
   import BottomMenu from '@/components/front/BottomMenu'
   // import eventBus from '@/eventBus.js'
   //
@@ -39,8 +37,8 @@
   //     }
   //   },
     components: {
-      // topMenu,
-      // Consult,
+      topMenu,
+      Consult,
       BottomMenu
     },
   //   mounted() {
@@ -62,6 +60,6 @@
   }
 </script>
 
-<!--<style scoped lang="less">-->
-<!--  /*@import '~@/assets/css/front/index';*/-->
-<!--</style>-->
+<style scoped lang="less">
+  @import '~@/static/css/front/index';
+</style>

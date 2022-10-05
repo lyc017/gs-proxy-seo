@@ -24,25 +24,24 @@
   }
 </script>
 
-<!--<style scoped lang="less">-->
-<!--  @import '~@/assets/css/base';-->
-<!--.front-bottom-menu{-->
-<!--  ul{-->
-<!--    line-height: 52px;-->
-<!--    color:#666666;-->
-<!--    li,a{-->
-<!--      padding:0 15px;-->
-<!--      position: relative;-->
-<!--      &:not(:last-child):after{-->
-<!--        position: absolute;-->
-<!--        content: '';-->
-<!--        width:1px;-->
-<!--        height:14px;-->
-<!--        background:#666666;-->
-<!--        top:19px;-->
-<!--        right:0;-->
-<!--      }-->
-<!--    }-->
-<!--  }-->
-<!--}-->
-<!--</style>-->
+<style scoped lang="less">
+.front-bottom-menu{
+  ul{
+    line-height: 52px;
+    color:#666666;
+    li,a{
+      padding:0 15px;
+      position: relative;
+      &:not(:last-child):after{
+        position: absolute;
+        content: '';
+        width:1px;
+        height:14px;
+        background:#666666;
+        top:19px;
+        right:0;
+      }
+    }
+  }
+}
+</style>
