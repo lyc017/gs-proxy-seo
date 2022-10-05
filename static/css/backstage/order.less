@@ -1,0 +1,161 @@
+/*订单*/
+@import "../base";
+/*订单管理*/
+.order-manage{
+  .om-handler {
+    .el-checkbox{
+      margin-right:15px;
+    }
+  }
+  .om-invoice{
+    /deep/.el-radio-button{
+      margin-right:15px;
+      .el-radio-button__inner{
+        border: 1px solid #DCDFE6;
+        border-radius:4px;
+      }
+      .el-radio-button__orig-radio:checked+.el-radio-button__inner{
+        -webkit-box-shadow:none;
+        box-shadow:none;
+      }
+    }
+  }
+}
+
+  /*订单详情*/
+.order-detail{
+  .od-handler{
+    padding:4px 0;
+    .el-button{
+      margin-left:15px;
+    }
+    .oh-price{
+      em{
+        font-size:18px;
+        font-weight: bold;
+        color:red;
+        font-style: normal;
+      }
+    }
+    .oh-rules-check{
+      margin:6px 0 0;
+      a{
+        color:@mainBlue;
+      }
+    }
+  }
+  .od-ul-info{
+    li{
+      width:33%;
+      line-height: 35px;
+    }
+  }
+  .od-cancel{
+    margin:14px 0;
+  }
+  .od-list-setting{
+    text-align: left;
+    margin:15px 0;
+  }
+}
+.od-list-sale{
+  color:orange;
+}
+/*订单确认*/
+.order-confirm{
+  .od-handler{
+    padding:4px 0;
+  }
+  .oc-price-mode{
+    text-align: right;
+    margin-right:12px;
+    em{
+      font-size:18px;
+      font-weight: bold;
+      color:red;
+      font-style: normal;
+    }
+    p{
+      color:#999999;
+      font-size: 12px;
+      span{
+        margin-right:15px;
+      }
+    }
+  }
+  .oc-wait{
+    margin:5px 0 15px;
+    color:@orangeCom;
+    i{
+      font-size:18px;
+      margin-right:4px;
+      position: relative;
+      top:1px;
+    }
+  }
+  .oc-select-price{
+    padding:30px 0;
+    .el-checkbox__input.is-checked+.el-checkbox__label{
+      color:inherit;
+    }
+    .oc-p-left{
+      span{
+         color:#999999;
+        margin:0 10px;
+      }
+    }
+    .oc-p-right{
+      span{
+        color:red;
+        font-size:18px;
+        font-weight:bold;
+        margin-left:4px;
+      }
+    }
+  }
+  .oc-pay{
+    border-top:1px solid @bordere5;
+    dt{
+      padding: 20px 0 10px;
+    }
+    dd{
+      margin:5px 0 15px;
+      /deep/.el-radio-group{
+        width:60%;
+        .el-radio--medium.is-bordered{
+          width:100%;
+          margin:10px 0;
+          padding:15px;
+          height:auto;
+        }
+        .el-radio.is-bordered.is-checked{
+          background:#ecf5ff;
+        }
+        i.iconfont{
+          font-size:24px;
+          margin-right:8px;
+          position: relative;
+          top:4px;
+          &.icon-proxy-zhifubao{
+            color:#06b4fd;
+          }
+          &.icon-proxy-weixinzhifu{
+            color:#09bb07;
+          }
+        }
+        .el-radio__input.is-checked+.el-radio__label{
+          color:@fontColor !important;
+        }
+        em{
+          font-style: normal;
+          background: @orangeCom;
+          color:#ffffff;
+          padding:2px 6px;
+          border-radius:6px 6px 6px 0;
+          margin-left:10px;
+          font-size:12px;
+        }
+      }
+    }
+  }
+}

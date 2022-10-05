@@ -1,9 +1,7 @@
 import Vue from 'vue'
-// import store from '@/store/index'
 import VueRouter from 'vue-router'
-import  index from '@/pages/index'
-import  about from '@/pages/about'
-import  news from '@/pages/news'
+import  frontRouter from '@/router/front/index.js'
+// console.log(123)
 // import backstageRouter from './backstage/index' // 后台页面
 // import frontRouter from './front/index' // 前台页面
 //
@@ -16,34 +14,27 @@ import  news from '@/pages/news'
 Vue.use(VueRouter)
 
 let routes = [
-  {
-    path: '',
-    name: 'Index',
-    meta: {
-      title: '动态代理_隧道代理_隧道代理搭建-旋风云',
-      checkLogin: false
-    },
-    component:index
-  },
-  {
-    path: '/about/:id',
-    name: 'about',
-    meta:{
-      checkLogin: false
-    },
-    component:about,
-
-    beforeEnter(to,from,next){
-      console.log('关于我们')
-      next()
-    }
-  },
-  {
-    path: '/news',
-    name: 'news',
-    component:news,
-
-  }
+  ...frontRouter
+  // {
+  //   path: '',
+  //   name: 'Index',
+  //   meta: {
+  //     title: '动态代理_隧道代理_隧道代理搭建-旋风云',
+  //     checkLogin: false
+  //   },
+  //   component: front
+  // }
+  // ...indexRouter
+  // {
+  //   path: '',
+  //   name: 'Index',
+  //   meta: {
+  //     title: '动态代理_隧道代理_隧道代理搭建-旋风云',
+  //     checkLogin: false
+  //   },
+  //   component:index
+  // },
+  // ...backstageRouter,
   // ...backstageRouter,
   // ...frontRouter // 放最后
 ]
@@ -54,6 +45,7 @@ let router = new VueRouter({
 
 // 验证是否登陆
 router.beforeEach((to, from, next) => {
+  console.log(to)
   if (to.meta.hasOwnProperty('checkLogin') && to.meta.checkLogin === false) {
     // 如果访问的是不验证登陆的，直接进入下一个页面
     next()
@@ -69,6 +61,7 @@ router.beforeEach((to, from, next) => {
     // })
   }
 })
+
 
 export function createRouter() {
   return router

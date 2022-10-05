@@ -1,0 +1,301 @@
+@import "../base";
+/*首页*/
+.index-main{
+  background-image: url('~@/assets/img/bg.png');
+  background-position: center;
+  background-repeat:repeat;
+  width: 100%;
+  height: 100%;
+}
+.front-index{
+  .recommend-page{
+    width: 100%;
+    height:@minBoxHeight;
+    /deep/.swiper-container-vertical > .swiper-pagination-bullets{
+      right:25px;
+      width:12px;
+    }
+    /deep/.swiper-container{
+      position: relative;
+      width:100%;
+      height:@minBoxHeight;
+      .swiper-slide{
+        width: 100%;
+        color: #000;
+        font-size: 16px;
+        text-align: center;
+        .fi-center{
+          position: relative;
+          width:100%;
+        }
+        .mode-1{
+          position: relative;
+          height:100%;
+          text-align: left;
+          .fi-center{
+            height:360px;
+          }
+          .ml-title,.ml-des,.ml-btn{
+            left:122px;
+          }
+          .ml-title{
+            font-size:56px;
+            position: absolute;
+            top:48px;
+          }
+          .ml-des{
+            font-size:20px;
+            position: absolute;
+            top:158px;
+            line-height: 1.5;
+          }
+          .ml-btn{
+            position: absolute;
+            top:250px;
+            background: #3544FF;
+            font-size:16px;
+          }
+          .m1-pc{
+            width:565px;
+            height:360px;
+            background-image:url('~@/assets/img/swiper/m1-pc.png');
+            position: absolute;
+            right:30px;
+          }
+        }
+        .mode-1,.mode-demand,.mode-server,.mode-advantage{
+          height:100%;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+        }
+        .mode-demand h3,.mode-server h3,.mode-advantage h3 {
+          font-size:50px;
+          font-weight: normal;
+        }
+        .mode-demand{
+          .fi-center{
+            height:520px;
+          }
+          ul{
+            padding:0 52px;
+            margin-top:6%;
+            li{
+              width:240px;
+              text-align: center;
+              background: #ffffff;
+              margin-bottom:4%;
+              padding:35px 0;
+              -webkit-box-shadow: 0px 0px 6px rgb(227 221 255 / 50%);
+              -moz-box-shadow: 0px 0px 6px rgba(227,221,255,0.5);
+              -ms-box-shadow: 0px 0px 6px rgba(227,221,255,0.5);
+              -o-box-shadow: 0px 0px 6px rgba(227,221,255,0.5);
+              box-shadow: 0px 0px 6px 0px rgba(227,221,255,0.5);
+              p{
+                margin-top:14px;
+                font-size: 18px;
+              }
+            }
+          }
+        }
+        .mode-server{
+          .fi-center{
+            height:520px;
+          }
+          ul{
+            margin-top:7%;
+            padding: 0 20px;
+            li{
+              font-size:30px;
+              div{
+                width:240px;
+                height:240px;
+                border-radius: 100%;
+                background:rgba(53,68,355, .1);
+                line-height: 240px;
+                color:#3544FF;
+                font-size:30px;
+                margin-bottom:40px;
+              }
+            }
+          }
+        }
+        .mode-advantage{
+          ul{
+            background-image:url('~@/assets/img/swiper/advantage_center.png');
+            background-size:310px 274px;
+            background-position: 444px 198px;
+            background-repeat: no-repeat;
+            position: relative;
+            height:624px;
+            margin-top:40px;
+            li{
+              -webkit-box-shadow: 0px 0px 9px rgb(201 201 201 / 5%);
+              -moz-box-shadow: 0px 0px 9px rgba(201,201,201,0.05);
+              -ms-box-shadow: 0px 0px 9px rgba(201,201,201,0.5);
+              -o-box-shadow: 0px 0px 9px rgba(201,201,201,0.5);
+              box-shadow:  0px 0px 9px 0px rgba(201,201,201,0.5);
+              background: #ffffff;
+              width:440px;
+              padding:15px 21px;
+              position:absolute;
+              border-radius:6px;
+              .ma-title{
+                font-size:24px;
+                line-height: 48px;
+              }
+              .ma-des{
+                font-size:14px;
+                color:#8A8A8A;
+                text-align: left;
+                line-height: 1.5;
+                margin-top:15px;
+              }
+              .ma-icon{
+                position: absolute;
+                width:48px;
+                height:48px;
+                background-size:cover;
+                top:15px;
+              }
+              &.mr-mode-0,&.mr-mode-1,&.mr-mode-2{
+                text-align: right;
+                .ma-top{
+                  padding-right:60px;
+                }
+                .ma-icon{
+                  right:21px;
+                }
+              }
+              &.mr-mode-3,&.mr-mode-4,&.mr-mode-5{
+                text-align: left;
+                .ma-top{
+                  padding-left:60px;
+                }
+                .ma-icon{
+                  left:21px;
+                }
+              }
+              &.mr-mode-0 {
+                top: 12px;
+                left: 36px;
+                .ma-icon{
+                  background-image: url('~@/assets/img/swiper/advantage_0.png');
+                }
+              }
+              &.mr-mode-1 {
+                top: 232px;
+                left: -15px;
+                .ma-icon{
+                  background-image: url('~@/assets/img/swiper/advantage_1.png');
+                }
+              }
+              &.mr-mode-2 {
+                top: 440px;
+                left: 55px;
+                .ma-icon{
+                  background-image: url('~@/assets/img/swiper/advantage_2.png');
+                }
+              }
+              &.mr-mode-3 {
+                top: 40px;
+                right: 90px;
+                .ma-icon{
+                  background-image: url('~@/assets/img/swiper/advantage_3.png');
+                }
+              }
+              &.mr-mode-4 {
+                top: 240px;
+                right: 19px;
+                .ma-icon{
+                  background-image: url('~@/assets/img/swiper/advantage_4.png');
+                }
+              }
+              &.mr-mode-5 {
+                top: 480px;
+                right: 90px;
+                .ma-icon{
+                  background-image: url('~@/assets/img/swiper/advantage_5.png');
+                }
+              }
+            }
+          }
+        }
+      }
+      .swiper-pagination-bullet:after{
+        content: '';
+        display: inline-block;
+        width:4px;
+        height:4px;
+        border-radius:100%;
+        background: #000;
+        opacity: 0.2;
+        left:4px;
+        top:4px;
+        position: absolute;
+      }
+      .swiper-pagination-bullet{
+        width:12px;
+        height:12px;
+        margin:6px auto;
+        position: relative;
+        background: transparent;
+        border-radius:100%;
+        opacity: 1;
+      }
+      .swiper-pagination-bullet:hover:after{
+        width:10px;
+        height:10px;
+        background: @mainBlue;
+        opacity: 1;
+        left:1px;
+        top:1px;
+      }
+      .swiper-pagination-bullet-active:after,
+      .swiper-pagination-bullet-active:hover:after{
+        width:12px;
+        height:12px;
+        background: @mainBlue;
+        opacity: 1;
+        left:0;
+        top:0;
+      }
+    }
+  }
+}
+
+/*代理*/
+.front-agent{
+  .fa-buy{
+    /deep/.ba-box{
+      padding:20px 0;
+    }
+  }
+}
+/*多屏*/
+@media screen and (max-width:1600px) {
+  .mode-demand h3,.mode-server h3 {
+    font-size:46px !important;
+  }
+  .mode-1 .ml-title{
+    font-size:52px !important;
+  }
+}
+/*动画*/
+// 透明度
+@keyframes transparent1 {
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+@keyframes move {
+  0% {
+    transform: translateX(-100px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}

@@ -1,0 +1,133 @@
+@import "../base";
+/deep/.gps-login-dialog{
+  width:360px;
+  .el-dialog__body{
+    padding:0;
+  }
+  .el-dialog__header{
+    padding:0;
+  }
+  &.el-dialog{
+    background: transparent;
+    box-shadow:none;
+  }
+  .gps-login{
+    width:100%;
+
+    .gl-logo{
+      overflow: hidden;
+      width: 80px;
+      height: 80px;
+      margin: 0 auto -40px auto;
+      border-radius: 50%;
+      -webkit-box-shadow: 0 4px 40px rgb(0 0 0 / 7%);
+      -moz-box-shadow: 0 4px 40px rgba(0, 0, 0, .07);
+      -ms-box-shadow: 0 4px 40px rgba(0, 0, 0, .07);
+      -o-box-shadow: 0 4px 40px rgba(0, 0, 0, .07);
+      box-shadow: 0 4px 40px rgb(0 0 0 / 7%);
+      padding: 5px;
+      z-index: 1;
+      position: relative;
+      background-color: #ffffff;
+    }
+    .gl-close{
+      width: 41px;
+      height: 40px;
+      border-radius: 100px;
+      background: #fff;
+      margin: 20px auto 0;
+      overflow: hidden;
+      cursor: pointer;
+      padding:10px;
+      i{
+        font-size:22px;
+        color:@mainBlue;
+      }
+    }
+    .gl-body{
+      width:100%;
+      font-size:14px;
+      background-color: #fff;
+      -webkit-box-shadow: 0 7px 25px rgb(0 0 0 / 8%);
+      -moz-box-shadow: 0 7px 25px rgba(0, 0, 0, .08);
+      -ms-box-shadow: 0 7px 25px rgba(0, 0, 0, .08);
+      -o-box-shadow: 0 7px 25px rgba(0, 0, 0, .08);
+      box-shadow: 0 7px 25px rgb(0 0 0 / 8%);
+      padding: 50px 25px 20px 25px;
+      text-align: left;
+      border-radius: 3px;
+      h4{
+        margin-bottom: 10px;
+        text-align: center;
+        margin-top: 4px;
+        font-weight: normal;
+      }
+      .gb-two{
+        width:100%;
+        .el-form-item__label{
+          width:100%;
+          position: relative;
+          z-index:999;
+          .light{
+            color:@mainBlue;
+            cursor: pointer;
+          }
+        }
+      }
+      .password-mode{
+        position: relative;
+        .em-hide-input{
+          z-index: -1;
+        }
+        .em-input{
+          position: absolute;
+          left:0;
+        }
+      }
+      .el-form-item{
+        margin-bottom:6px;
+        .el-form-item__label{
+          line-height: 35px;
+        }
+        .el-form-item__content{
+          position: inherit;
+          .el-input input{
+            background-color: rgba(0, 129, 198, .05);
+            border:0;
+          }
+        }
+      }
+      .gl-handler{
+        margin-top:30px;
+        line-height: 30px;
+        .el-checkbox{
+          margin-right:4px;
+        }
+        .gl-other{
+          margin-top:15px;
+          a{
+            color:@mainBlue;
+          }
+        }
+      }
+      .gl-agreement{
+        position: relative;
+        top:10px;
+        .el-checkbox{
+          margin-right:6px;
+        }
+        a{
+          color:@mainBlue;
+        }
+      }
+      .gl-code{
+        width: 100%;
+        .gl-code-btn{
+          margin-left:10px;
+          flex:none;
+        }
+      }
+
+    }
+  }
+}
