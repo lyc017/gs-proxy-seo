@@ -1,7 +1,7 @@
 // import protocolRouter from './protocol'
 // import headerRouter from './header'
-import index from '@/pages/front/index.vue'
-// import index from '@/pages/front/index.vue'
+import index from '@/pages/front/Index.vue'
+import FrontIndex from '@/pages/front/FrontIndex.vue'
 export default [
   // ...protocolRouter,
   // ...headerRouter,
@@ -67,7 +67,7 @@ export default [
           title: '动态代理_隧道代理_隧道代理搭建-旋风云',
           checkLogin: false
         },
-        component: index
+        component: FrontIndex
       }
     ]
   }

@@ -27,6 +27,7 @@ export default {
   plugins: [
     '@/plugins/element-ui',
     '@/static/js/main.js',
+    { src: "@/plugins/vue-awesome-swiper.js", ssr: false }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

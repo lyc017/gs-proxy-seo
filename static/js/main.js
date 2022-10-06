@@ -11,9 +11,11 @@ import Vue from 'vue'
 // import useIndex from '@/assets/js/use/index'
 // import directive from '@/assets/js/directive/index'
 import constIndex from '@/static/js/const/index'
+//
+
 // import VueQr from 'vue-qr'
 // import * as Base64 from 'js-base64'
-// import animate from 'animate.css'
+import animate from 'animate.css'
 // import {
 //   Avatar,
 //   Card,
@@ -97,7 +99,7 @@ import constIndex from '@/static/js/const/index'
 // if (uri.env.type === 'dev' || uri.env.type === 'test') {
 //   // new VConsole()
 // }
-// Vue.use(animate)
+Vue.use(animate)
 // Vue.use(useIndex)
 // Vue.use(directive)
 // // 全局组件

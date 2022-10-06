@@ -1,9 +1,9 @@
 <template>
   <div class="front-top-menu">
-    <div class="main-contain">
+    <div class="main-contain" >
       <div class="flex justify-between align-middle">
-        <router-link to="/" class="ftm-logo animate__animated animate__swing">
-          <el-image alt="代理ip服务公司 LOGO" :src="require('@/static/img/logo/header-logo.png')"></el-image>
+        <router-link to="/" class="ftm-logo " :class="{'animate__animated animate__swing': show}">
+          <img alt="代理ip服务公司 LOGO" :src="require('@/static/img/logo/header-logo.png')"></img>
         </router-link>
         <div class="flex align-middle">
           <div class="ftm-menu flex">
@@ -44,7 +44,8 @@
           showSt: false,
           resource: ''
         },
-        token: ''
+        token: '',
+        show: false // logo动画展示开关
       }
     },
     watch: {
@@ -55,6 +56,7 @@
     mounted() {
     //   this.token = this.$store.getters.token()
       this.current = this.$route.fullPath
+      this.show = true
     },
     components: {
       Login

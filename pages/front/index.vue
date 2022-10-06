@@ -3,10 +3,10 @@
     <top-menu></top-menu>
     <div class="im-box">
       <Consult></Consult>
-<!--      <keep-alive>-->
-<!--        <router-view v-if="$route.meta.keepAlive" v-wechat-title="$route.meta.title" replace></router-view>-->
-<!--      </keep-alive>-->
-<!--      <router-view v-if="!$route.meta.keepAlive" v-wechat-title="$route.meta.title" replace></router-view>-->
+      <keep-alive>
+        <router-view v-if="$route.meta.keepAlive" v-wechat-title="$route.meta.title" replace></router-view>
+      </keep-alive>
+      <router-view v-if="!$route.meta.keepAlive" v-wechat-title="$route.meta.title" replace></router-view>
     </div>
     <bottom-menu v-if="bottomSt"></bottom-menu>
   </div>
