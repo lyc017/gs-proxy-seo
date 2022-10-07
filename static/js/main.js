@@ -1,7 +1,8 @@
 // import '@/assets/css/iconfont/iconfont.css'
 // import '@/assets/css/theme/index.css' // element样式
-// import '@/assets/css/common' // 全局样式
+
 import Vue from 'vue'
+import '@/static/css/common.less' // 全局样式
 // import App from './App'
 // import router from './router'
 // import store from '@/store/index'
