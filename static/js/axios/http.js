@@ -1,8 +1,8 @@
 import axios from 'axios'
-import router from '@/router/index'
-import store from '@/store/index'
+import router from '@/router.js'
+import store from '@/store/index.js'
 import uri from './uri'
-import {loading, clearLoading, alert, error} from '@/assets/js/use/toast'
+import {loading, clearLoading, alert, error} from '@/static/js/use/toast.js'
 import qs from 'qs'
 
 const SHOW_LOADING = {

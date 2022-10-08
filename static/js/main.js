@@ -91,7 +91,7 @@ import animate from 'animate.css'
 //   Result
 // } from 'element-ui' // elementUi框架
 // import VueWeChatTitle from 'vue-wechat-title'
-// import http from '@/assets/js/axios/http'
+import http from '@/static/js/axios/http.js'
 // import '@/assets/js/mock/index'
 // import MetaInfo from 'vue-meta-info'
 // Vue.use(MetaInfo)
@@ -111,8 +111,9 @@ Vue.use(animate)
 // Vue.use(VueWeChatTitle)
 // Vue.prototype.uri = uri
 Vue.prototype.$const = constIndex
+
 // Vue.prototype.$util = util
-// Vue.prototype.$http = http // 请求
+Vue.prototype.$http = http // 请求
 // Vue.config.productionTip = false
 // Vue.use(Avatar).use(Empty)
 // Vue.use(Scrollbar).use(Carousel).use(CarouselItem)

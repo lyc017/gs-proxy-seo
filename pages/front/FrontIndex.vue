@@ -1,12 +1,13 @@
 <template>
   <section class="front-index">
     <div class="recommend-page xms-flex-wrap" ref="pageRef">
-      <div  class="xms-flex-middle">
+      <div  class="xms-flex-middle" v-show="activeIndex !== -1">
         <client-only>
           <swiper
             :options="swiperOption"
             :active-index="1"
-            ref="mySwiper">
+            ref="mySwiper"
+          >
             <swiper-slide>
               <div class="mode-1 main-contain flex align-middle" ref="slide0">
                 <div class="fi-center">
@@ -72,7 +73,8 @@
 </template>
 
 <script>
-  // import eventBus from '@/eventBus.js'
+  import eventBus from '@/static/js/eventBus.js'
+  import {mapMutations,mapState} from 'vuex'
   export default {
     name: 'FrontIndex',
     data () {
@@ -90,69 +92,71 @@
             clickable: true // 允许分页点击跳转
           }
         },
-        // demand: this.$store.state.f_demand,
-        // server: [],
-        // advantage: this.$store.state.f_advantage,
-        // scale: 1,
-        // activeIndex: 0 // 索引
+        server: [],
+        scale: 1,
+        swiper: null,
+        activeIndex: -1 // 索引
       }
     },
     computed: {
-      swiper() {
-        return this.$refs.mySwiper.swiper
-      }
+      ...mapState({
+        demand:state =>state.f_demand,
+        advantage:state=>state.f_advantage
+      })
     },
-    // components: {
-    //   Swiper,
-    //   SwiperSlide
-    // },
-    // mounted () {
-    //   let _this = this
-    //   for (let i = 0; i < 4; i++) {
-    //     if (i !== 0) {
-    //       this.setSlideScale(i)
-    //     }
-    //   }
-    //   this.setSlideScale(0)
-    //   this.accessStat()
-    //   window.addEventListener('resize', () => {
-    //     // this.setSlideScale(_this.activeIndex)
-    //   })
-    //   this.swiper.on('slideChange', function() {
-    //     // 切换
-    //     eventBus.$emit('updateBottom', this.activeIndex)
-    //     _this.setSlideScale(this.activeIndex)
-    //   })
-    // },
-  //   methods: {
-  //     // 稳定服务
-  //     accessStat () {
-  //       this.$http.get('/main/access/stat', {}).then(({status, data}) => {
-  //         if (status === 200) {
-  //           this.server = data
-  //         }
-  //       })
-  //     },
-  //     setSlideScale (i) {
-  //       let _this = this
-  //       let scale = this.scale
-  //       if (i === 2) {
-  //         scale = this.$refs.pageRef.clientHeight / 730
-  //         if (scale < 1) scale += 0.022
-  //         if (scale > 1) scale = 1
-  //       }
-  //       if (this.$refs && this.$refs[`slide${i}`]) {
-  //         this.$refs[`slide${i}`].style = `transform:scale(${scale}) translate(-50%, -50%);transform-origin:left top`
-  //       }
-  //       setTimeout(() => {
-  //         _this.activeIndex = i
-  //       }, 100)
-  //     }
-  //   }
+    mounted () {
+      let _this = this
+      for (let i = 0; i < 4; i++) {
+        if (i !== 0) {
+          this.setSlideScale(i)
+        }
+      }
+      this.setSlideScale(0)
+      this.accessStat()
+      window.addEventListener('resize', () => {
+        // this.setSlideScale(_this.activeIndex)
+      })
+      this.$nextTick(()=>{
+        this.swiper = this.$refs.mySwiper.$swiper
+        this.swiper.on('slideChange', function() {
+          // 切换
+          eventBus.$emit('updateBottom', this.activeIndex)
+          _this.setSlideScale(this.activeIndex)
+        })
+      })
+    },
+    methods: {
+      // 稳定服务
+      accessStat () {
+        this.$http.get('/main/access/stat', {}).then(({status, data}) => {
+          if (status === 200) {
+            this.server = data
+            console.log(this.server)
+          }
+        })
+      },
+      setSlideScale (i) {
+        let _this = this
+        this.$nextTick(()=>{
+          let scale = this.scale
+          if (i === 2) {
+            scale = this.$refs.pageRef.clientHeight / 730
+            if (scale < 1) scale += 0.022
+            if (scale > 1) scale = 1
+          }
+          if (this.$refs && this.$refs[`slide${i}`]) {
+            this.$refs[`slide${i}`].style = `transform:scale(${scale}) translate(-50%, -50%);transform-origin:left top`
+          }
+          setTimeout(() => {
+            _this.activeIndex = i
+          }, 100)
+        })
+
+      }
+    }
   }
 </script>
 
 <style scoped lang="less">
   @import '~@/static/css/front/index';
-
 </style>

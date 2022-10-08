@@ -16,8 +16,7 @@
   import topMenu from '@/components/front/TopMenu'
   import Consult from '@/components/front/Consult'
   import BottomMenu from '@/components/front/BottomMenu'
-  // import eventBus from '@/eventBus.js'
-  //
+  import eventBus from '@/static/js/eventBus.js'
   export default {
     name: 'Index',
   //   metaInfo() {
@@ -28,35 +27,35 @@
         bottomSt: true
       }
     },
-  //   watch: {
-  //     '$route': {
-  //       handler(to) {
-  //         this.bottomSt = to.name !== 'FrontIndex'
-  //       },
-  //       immediate: true
-  //     }
-  //   },
+    watch: {
+      '$route': {
+        handler(to) {
+          this.bottomSt = to.name !== 'FrontIndex'
+        },
+        immediate: true
+      }
+    },
     components: {
       topMenu,
       Consult,
       BottomMenu
     },
-  //   mounted() {
-  //     if (this.$route.name === 'FrontIndex') {
-  //       this.bottomSt = false
-  //       eventBus.$on('updateBottom', this.updateBottomHandle)
-  //     }
-  //   },
-  //   beforeDestroy() {
-  //     if (this.$route.name === 'FrontIndex') {
-  //       eventBus.$off('updateBottom', this.updateBottomHandle)
-  //     }
-  //   },
-  //   methods: {
-  //     updateBottomHandle(value) {
-  //       this.bottomSt = !(value !== 3)
-  //     }
-  //   }
+    mounted() {
+      if (this.$route.name === 'FrontIndex') {
+        this.bottomSt = false
+        eventBus.$on('updateBottom', this.updateBottomHandle)
+      }
+    },
+    beforeDestroy() {
+      if (this.$route.name === 'FrontIndex') {
+        eventBus.$off('updateBottom', this.updateBottomHandle)
+      }
+    },
+    methods: {
+      updateBottomHandle(value) {
+        this.bottomSt = !(value !== 3)
+      }
+    }
   }
 </script>
 
