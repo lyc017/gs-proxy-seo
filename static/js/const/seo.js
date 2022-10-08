@@ -1,12 +1,3 @@
-// 首页
-export const INDEX_MI = {
-  title: '动态代理_隧道代理_隧道代理搭建-旋风云',
-  meta: [
-    {name: 'keywords', content: '动态代理_隧道代理_隧道代理搭建'},
-    {name: 'description', content: '旋风云隧道代理是基于高性能主机构建的动态代理服务器，隧道代理搭建支持云端自动切换全国各地ip，功能强大、使用简单，是数据采集的利器'}
-  ]
-}
-
 // 购买代理
 export const AGENT_MI = {
   title: '动态代理ip_隧道代理ip_爬虫代理-旋风云',
@@ -100,16 +91,17 @@ export const INFORMATION_MI_DETAIL = (title, content) => {
 
 // 关于我们
 export const ABOUT_MI = {
+  title: '关于我们_动态代理的实现_动态国内ip代理-旋风云',
   meta: [
     {name: 'robots', content: 'nofollow'}
   ]
 }
 
-export default {
-  INDEX_MI,
-  AGENT_MI,
-  LIBRARY_JR_MI,
-  INFORMATION_MI_DETAIL,
-  INFORMATION_MI_LIST,
-  ABOUT_MI
-}
+// export default {
+//   INDEX_MI,
+//   AGENT_MI,
+//   LIBRARY_JR_MI,
+//   INFORMATION_MI_DETAIL,
+//   INFORMATION_MI_LIST,
+//   ABOUT_MI
+// }

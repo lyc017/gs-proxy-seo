@@ -19,9 +19,6 @@
   import eventBus from '@/static/js/eventBus.js'
   export default {
     name: 'Index',
-  //   metaInfo() {
-  //     return this.$const.seo.INDEX_MI
-  //   },
     data() {
       return {
         bottomSt: true

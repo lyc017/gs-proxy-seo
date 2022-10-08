@@ -1,5 +1,5 @@
-import {copy} from './copy'
-import {encrypt, decrypt} from './encrypt'
+import {copy} from './copy.js'
+import {encrypt, decrypt} from './encrypt.js'
 import xmsBasicUtil from 'xms-basic-util'
 
 const dateFormat = xmsBasicUtil.dateFormat

@@ -1,5 +1,5 @@
 import Clipboard from 'clipboard'
-import { success, error } from '@/assets/js/use/toast'
+import { success, error } from '@/static/js/use/toast.js'
 
 // 默认配置
 const defaultConfig = {

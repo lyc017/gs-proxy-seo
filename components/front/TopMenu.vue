@@ -21,7 +21,7 @@
       </div>
     </div>
 
-<!--    <login :show.sync="login.showSt" :resource="login.resource"></login>-->
+    <login :show.sync="login.showSt" :resource="login.resource"></login>
   </div>
 </template>
 
@@ -54,7 +54,7 @@
       }
     },
     mounted() {
-    //   this.token = this.$store.getters.token()
+      this.token = this.$store.getters.token()
       this.current = this.$route.fullPath
       this.show = true
     },

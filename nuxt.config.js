@@ -1,33 +1,40 @@
+
 export default {
-  // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: '选风云',
-    htmlAttrs: {
-      lang: 'en'
-    },
+    title: '动态代理_隧道代理_隧道代理搭建-旋风云',
+    // htmlAttrs: {
+    //   lang: 'en'
+    // },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '描述' },
-      { hid: 'keyword', name: 'keyword', content: '关键字' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { name: 'format-detection', content: 'telephone=no' },
+      {
+        hid: 'keywords',
+        name: 'keywords',
+        content: '动态代理_隧道代理_隧道代理搭建'
+      },
+      {
+        hid: 'description',
+        name: 'description',
+        content: '旋风云隧道代理是基于高性能主机构建的动态代理服务器，隧道代理搭建支持云端自动切换全国各地ip，功能强大、使用简单，是数据采集的利器'
+      }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/img/logo/logo.ico' }
     ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     'element-ui/lib/theme-chalk/index.css',
-    // '@/static/css/common.less'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '@/plugins/element-ui',
-    '@/static/js/main.js',
-    { src: "@/plugins/vue-awesome-swiper.js", ssr: false }
+    '@/plugins/ssr.js',
+    { src: "@/plugins/main.js", ssr: false }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

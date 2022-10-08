@@ -1,9 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import  frontRouter from '@/router/front/index.js'
-// console.log(123)
+
 // import backstageRouter from './backstage/index' // 后台页面
-// import frontRouter from './front/index' // 前台页面
 //
 // // 解决ElementUI导航栏中的vue-router在3.0版本以上重复点菜单报错问题
 // const originalPush = Router.prototype.push

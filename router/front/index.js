@@ -2,6 +2,10 @@
 // import headerRouter from './header'
 import index from '@/pages/front/Index.vue'
 import FrontIndex from '@/pages/front/FrontIndex.vue'
+import About from '@/pages/front/About.vue'
+import Information from '@/pages/front/Information'
+import InformationDetail from '@/pages/front/InformationDetail'
+
 export default [
   // ...protocolRouter,
   // ...headerRouter,
@@ -33,33 +37,32 @@ export default [
     //   },
     //   component: () => import('@/views/front/Library')
     // },
-    // {
-    //   path: '/information',
-    //   name: 'Information',
-    //   meta: {
-    //     title: '行业资讯_动态ip代理地址_代理的动态ip-旋风云',
-    //     checkLogin: false
-    //   },
-    //   component: () => import('@/views/front/Information')
-    // },
-    // {
-    //   path: '/about',
-    //   name: 'About',
-    //   meta: {
-    //     title: '关于我们_动态代理的实现_动态国内ip代理-旋风云',
-    //     checkLogin: false
-    //   },
-    //   component: () => import('@/views/front/About')
-    // },
-    // {
-    //   path: '/information/detail/:id',
-    //   name: 'InformationDetail',
-    //   meta: {
-    //     title: '服务说明文档中心_动态代理的实现_动态国内ip代理-旋风云',
-    //     checkLogin: false
-    //   },
-    //   component: () => import('@/views/front/InformationDetail')
-    // },
+      {
+        path: '/information',
+        name: 'Information',
+        meta: {
+          checkLogin: false
+        },
+        component: Information
+      },
+      {
+        path: '/about',
+        name: 'About',
+        meta: {
+          title: '关于我们_动态代理的实现_动态国内ip代理-旋风云',
+          checkLogin: false
+        },
+        component: About
+      },
+      {
+        path: '/information/detail/:id',
+        name: 'InformationDetail',
+        meta: {
+          title: '服务说明文档中心_动态代理的实现_动态国内ip代理-旋风云',
+          checkLogin: false
+        },
+        component: InformationDetail
+      },
       {
         path: '*',
         name: 'FrontIndex',
