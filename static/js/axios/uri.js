@@ -1,5 +1,4 @@
 import {HTTP_ENV} from '../const/index'
-
 export default {
   env: {
     type: HTTP_ENV.DEV,
@@ -18,6 +17,7 @@ export default {
   },
   getReqBaseUrl(apiHostKey) {
     apiHostKey = apiHostKey || 'gs_url' // 默认成gs_url接口
+    console.log(this.store,'store')
     if(process.client) {
       if (window.location.href.indexOf('local.') > -1) {
       } else if (window.location.href.indexOf('xms3.') > -1) {

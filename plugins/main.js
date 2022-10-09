@@ -6,8 +6,8 @@ import util from '@/static/js/util/index.js'
 import * as Base64 from 'js-base64'
 import animate from '../node_modules/animate.css/animate.css'
 
-
 Vue.use(VueAwesomeSwiper, /* { default options with global component } */)
 Vue.prototype.$util = util
 Vue.prototype.Base64 = Base64
 Vue.use(animate)
+

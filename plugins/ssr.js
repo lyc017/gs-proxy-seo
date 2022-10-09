@@ -5,9 +5,10 @@
 import Vue from 'vue'
 import '@/static/css/common.less' // 全局样式
 // import App from './App'
-// import store from '@/store/index'
+import store from '@/store/index'
+import http from '@/static/js/axios/http.js'
 // import component from '@/assets/js/component'
-// import uri from '@/assets/js/axios/uri'
+import uri from '@/static/js/axios/uri'
 
 // import useIndex from '@/assets/js/use/index'
 // import directive from '@/assets/js/directive/index'
@@ -18,7 +19,7 @@ import constIndex from '@/static/js/const/index'
 
 
 import VueWeChatTitle from 'vue-wechat-title'
-import http from '@/static/js/axios/http.js'
+
 // import '@/assets/js/mock/index'
 // import MetaInfo from 'vue-meta-info'
 // Vue.use(MetaInfo)
@@ -36,11 +37,12 @@ import http from '@/static/js/axios/http.js'
 // }
 // Vue.use(VueQr)
 Vue.use(VueWeChatTitle)
-// Vue.prototype.uri = uri
+
 Vue.prototype.$const = constIndex
-
-
+Vue.prototype.store = store
 Vue.prototype.$http = http // 请求
+Vue.prototype.uri = uri
+
 // Vue.config.productionTip = false
 // Vue.use(Avatar).use(Empty)
 // Vue.use(Scrollbar).use(Carousel).use(CarouselItem)

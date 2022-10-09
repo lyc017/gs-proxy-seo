@@ -4,23 +4,28 @@ import Vuex from 'vuex'
 
 
 import {loginState, loginGetters, loginMutations, loginActions} from '@/store/login.js' // 作为插件使用
-import backstage from '@/store/backStage/index.js'
-import front from '@/store/front/index.js'
+import backstage from '@/store/backStage/index.js' // 后台
+import front from '@/store/front/index.js' // 前台
+import  {initState, initGetters, initMutations, initActions} from '@/store/init.js' // 初始函数
 
 const store = () => new Vuex.Store({
   state: {
     loginState: loginState,
     ...backstage,
-    ...front
+    ...front,
+    ...initState
   },
   getters: {
-    ...loginGetters
+    ...loginGetters,
+    ...initGetters
   },
   mutations: {
-    ...loginMutations
+    ...loginMutations,
+    ...initMutations
   },
   actions: {
-    ...loginActions
+    ...loginActions,
+    ...initActions
   }
 })
 

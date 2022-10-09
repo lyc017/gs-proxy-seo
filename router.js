@@ -44,7 +44,6 @@ let router = new VueRouter({
 
 // 验证是否登陆
 router.beforeEach((to, from, next) => {
-  console.log(to)
   if (to.meta.hasOwnProperty('checkLogin') && to.meta.checkLogin === false) {
     // 如果访问的是不验证登陆的，直接进入下一个页面
     next()

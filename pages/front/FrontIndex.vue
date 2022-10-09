@@ -131,7 +131,6 @@
         this.$http.get('/main/access/stat', {}).then(({status, data}) => {
           if (status === 200) {
             this.server = data
-            console.log(this.server)
           }
         })
       },

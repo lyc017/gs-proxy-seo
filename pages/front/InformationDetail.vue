@@ -44,7 +44,7 @@
         last: null
       }
     },
-    mounted() {
+    created(){
       this.getInformation(this.$route.params.id)
     },
     methods: {

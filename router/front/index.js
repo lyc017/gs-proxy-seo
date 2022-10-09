@@ -47,6 +47,7 @@ export default [
       },
       {
         path: '/about',
+
         name: 'About',
         meta: {
           title: '关于我们_动态代理的实现_动态国内ip代理-旋风云',
