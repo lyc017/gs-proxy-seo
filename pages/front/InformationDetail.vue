@@ -44,9 +44,22 @@
         last: null
       }
     },
-    created(){
-      this.getInformation(this.$route.params.id)
+    async asyncData({app, route}){
+      console.log(app.$http)
+      let res = await app.$http.get('/main/information/get', {
+        id: route.params.id,
+        showLoading: 1
+      })
+      console.log(res,999)
+      return {
+        information:{
+          title:123
+        }
+      }
     },
+    // fetch(){
+    //   this.getInformation(this.$route.params.id)
+    // },
     methods: {
       getInformation(id) {
         if (id) {

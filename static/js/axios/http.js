@@ -1,39 +1,38 @@
 import axios from 'axios'
 import router from '@/router.js'
-import store from '@/store/index'
+import store from '@/store/index.js'
 import uri from './uri'
 import {loading, clearLoading, alert, error} from '@/static/js/use/toast.js'
-console.log(store,88888)
 import qs from 'qs'
-
+import {HTTP_ENV} from "../const";
 const SHOW_LOADING = {
   HIDE: 0, // 不显示
   SHOW: 1, // 显示
   CONTINUED: 2 // 持续
 }
-
 /**
  * 默认配置
  */
 const config = {
-  baseURL: uri.getReqBaseUrl(),
+  baseURL:'//proxyapi.xms3.4846.com',
   timeout: 1000 * 20,
   withCredentials: true,
   headers: {
     'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
   }
 }
-
 /**
  * 请求前拦截器
  * @type {null}
  */
 function interceptorReq(config, param) {
+  console.log(config,8888)
   if (param.apiHostKey) {
     config.baseURL = uri.getReqBaseUrl(param.apiHostKey)
     delete param.apiHostKey
+  } else {
+    config.baseURL = uri.getReqBaseUrl()
   }
-
   if (param.mock) {
     config.baseURL = ''
     delete param.mock
@@ -164,6 +163,7 @@ service.interceptors.response.use(response => {
   responseError(error.response)
   return error.response
 })
+
 
 export default {
   post(url, data) {

@@ -1,5 +1,4 @@
-
-export const loginState = {
+export const initState = {
   domain: '', // 基础域名
 }
 //
@@ -15,8 +14,6 @@ export const initMutations = {
 
 export const initActions = {
   nuxtServerInit(store, context) {
-    console.log('nuxtServerInit')
-    console.log(context,'context')
     store.commit('setDomain', context.req.headers.host);
   },
 }
