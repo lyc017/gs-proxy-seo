@@ -26,7 +26,6 @@ const config = {
  * @type {null}
  */
 function interceptorReq(config, param) {
-  console.log(config,8888)
   if (param.apiHostKey) {
     config.baseURL = uri.getReqBaseUrl(param.apiHostKey)
     delete param.apiHostKey
@@ -170,6 +169,7 @@ export default {
     return service.post(url, data)
   },
   get(url, params) {
+    console.log(service.get(url, {params}),444444)
     return service.get(url, {params})
   },
   upload(url, data, onUploadProgress) { // 上传文件
@@ -187,5 +187,6 @@ export default {
         'Content-Type': 'application/json'
       }
     })
-  }
+  },
+  service
 }

@@ -34,7 +34,8 @@ export default {
   plugins: [
     '@/plugins/element-ui',
     { src: "@/plugins/main.js", ssr: false },
-    '@/plugins/ssr.js'
+    '@/plugins/ssr.js',
+    '@/plugins/require.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

@@ -44,36 +44,38 @@
         last: null
       }
     },
-    async asyncData({app, route}){
-      console.log(app.$http)
-      let res = await app.$http.get('/main/information/get', {
-        id: route.params.id,
-        showLoading: 1
-      })
-      console.log(res,999)
+    async asyncData({app, route, $http1}){
+      console.log($http1,2222)
+      let res1 = await $http1.getData()
       return {
-        information:{
-          title:123
-        }
+        information: res1.information,
+        recommends: res1.recommends,
+        pre: res1.pre,
+        last: res1.last
       }
     },
-    // fetch(){
-    //   this.getInformation(this.$route.params.id)
-    // },
+    mounted () {
+     this.getInformation(this.$route.params.id)
+    },
     methods: {
       getInformation(id) {
         if (id) {
-          this.$http.get('/main/information/get', {
+          let res = this.$http.get('/main/information/get', {
             id: id,
             showLoading: 1
-          }).then(({status, data}) => {
-            if (status === 200) {
-              this.information = data.information
-              this.recommends = data.recommends
-              this.pre = data.pre
-              this.last = data.last
-            }
           })
+          console.log(res,333)
+          // this.$http.get('/main/information/get', {
+          //   id: id,
+          //   showLoading: 1
+          // }).then(({status, data}) => {
+          //   if (status === 200) {
+          //     this.information = data.information
+          //     this.recommends = data.recommends
+          //     this.pre = data.pre
+          //     this.last = data.last
+          //   }
+          // })
         }
       }
     }
