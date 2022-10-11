@@ -45,13 +45,12 @@
       }
     },
     async asyncData({app, route, $http1}){
-      console.log($http1,2222)
-      let res1 = await $http1.getData()
+      let res1 = await $http1.get('/main/information/get?id=15')
       return {
-        information: res1.information,
-        recommends: res1.recommends,
-        pre: res1.pre,
-        last: res1.last
+        information: res1.data.information,
+        recommends: res1.data.recommends,
+        pre: res1.data.pre,
+        last: res1.data.last
       }
     },
     mounted () {
@@ -60,22 +59,20 @@
     methods: {
       getInformation(id) {
         if (id) {
-          let res = this.$http.get('/main/information/get', {
-            id: id,
-            showLoading: 1
-          })
-          console.log(res,333)
-          // this.$http.get('/main/information/get', {
+          // let res = this.$http1.get('/main/information/get', {
           //   id: id,
           //   showLoading: 1
-          // }).then(({status, data}) => {
-          //   if (status === 200) {
-          //     this.information = data.information
-          //     this.recommends = data.recommends
-          //     this.pre = data.pre
-          //     this.last = data.last
-          //   }
           // })
+          // console.log(res,333)
+          this.$http1.get('/main/information/get?id=16').then(({status, data}) => {
+            if (status === 200) {
+              console.log('获取到了333')
+              // this.information = data.information
+              // this.recommends = data.recommends
+              // this.pre = data.pre
+              // this.last = data.last
+            }
+          })
         }
       }
     }

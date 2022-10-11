@@ -39,11 +39,6 @@ Vue.use(VueWeChatTitle)
 
 Vue.prototype.$const = constIndex
 Vue.prototype.$http = http // 请求
-export default ({app}, inject) => {
-  inject('http', http)
-  // inject.$http = http
-  // console.log(inject.$http,88888)
-}
 
 
 // Vue.prototype.uri = uri
