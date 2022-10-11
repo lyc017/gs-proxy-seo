@@ -5,7 +5,7 @@
 import Vue from 'vue'
 import '@/static/css/common.less' // 全局样式
 // import App from './App'
-import http from '@/static/js/axios/http.js'
+// import http from '@/static/js/axios/http.js'
 // import component from '@/assets/js/component'
 // import uri from '@/static/js/axios/uri'
 
@@ -38,7 +38,7 @@ import VueWeChatTitle from 'vue-wechat-title'
 Vue.use(VueWeChatTitle)
 
 Vue.prototype.$const = constIndex
-Vue.prototype.$http = http // 请求
+// Vue.prototype.$http = http // 请求
 
 
 // Vue.prototype.uri = uri

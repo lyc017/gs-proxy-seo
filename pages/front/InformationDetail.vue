@@ -16,8 +16,8 @@
       <div class="content" v-html="information.content"></div>
       <div class="bottom">
         <div class="more">
-          <a @click="getInformation(pre.id)">上一篇：{{pre ? pre.title : '没有了'}}</a>
-          <a @click="getInformation(last.id)">下一篇：{{last ? last.title : '没有了'}}</a>
+          <a @click="getInformation(pre)">上一篇：{{pre ? pre.title : '没有了'}}</a>
+          <a @click="getInformation(last)">下一篇：{{last ? last.title : '没有了'}}</a>
         </div>
       </div>
       <div class="recommend">
@@ -44,8 +44,8 @@
         last: null
       }
     },
-    async asyncData({app, route, $http1}){
-      let res1 = await $http1.get('/main/information/get?id=15')
+    async asyncData({ route, $http}){
+      let res1 = await $http.get(`/main/information/get?id=${route.params.id}`)
       return {
         information: res1.data.information,
         recommends: res1.data.recommends,
@@ -53,26 +53,10 @@
         last: res1.data.last
       }
     },
-    mounted () {
-     this.getInformation(this.$route.params.id)
-    },
     methods: {
-      getInformation(id) {
-        if (id) {
-          // let res = this.$http1.get('/main/information/get', {
-          //   id: id,
-          //   showLoading: 1
-          // })
-          // console.log(res,333)
-          this.$http1.get('/main/information/get?id=16').then(({status, data}) => {
-            if (status === 200) {
-              console.log('获取到了333')
-              // this.information = data.information
-              // this.recommends = data.recommends
-              // this.pre = data.pre
-              // this.last = data.last
-            }
-          })
+      getInformation(mode) {
+        if (mode && mode.id) {
+          this.$router.replace(`/information/detail/${mode.id}`)
         }
       }
     }

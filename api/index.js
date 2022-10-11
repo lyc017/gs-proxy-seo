@@ -1,4 +1,4 @@
-import {HTTP_ENV} from '../const/index'
+import {HTTP_ENV} from '../static/js/const'
 import store from '@/store/index'
 export default {
   env: {

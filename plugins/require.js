@@ -1,6 +1,7 @@
 import router from '@/router.js'
+import axios from 'axios'
 import store from '@/store/index.js'
-import uri from '@/static/js/axios/uri'
+import uri from '@/api/index'
 import {loading, clearLoading, alert, error} from '@/static/js/use/toast.js'
 import qs from 'qs'
 const SHOW_LOADING = {
@@ -8,8 +9,6 @@ const SHOW_LOADING = {
   SHOW: 1, // 显示
   CONTINUED: 2 // 持续
 }
-
-
 /**
  * 请求前拦截器
  * @type {null}
@@ -131,8 +130,7 @@ function axiosConfig($axios) {
     }
   }
   // 设置API的域名
-  let service = $axios.create(config)
-  service.setBaseURL('http://proxyapi.xms3.4846.com')
+  let service = axios.create(config)
   service.interceptors.request.use(config => {
     // 表单提交时数据不做处理
     if (config.headers['Content-Type'] !== 'application/json') {
@@ -160,76 +158,36 @@ function axiosConfig($axios) {
     responseError(error.response)
     return error.response
   })
-  console.log(service,'service')
   return service
-  // let requestConfig = {}
-  // // 设置API的域名
-  // $axios.setBaseURL('http://proxyapi.xms3.4846.com')
-  // // 设置请求拦截
-  // $axios.onRequest((config) => {
-
-  //   requestConfig = {
-  //     baseURL: config.baseURL,
-  //     url: config.url,
-  //     method: config.method,
-  //     data: config.data,
-  //     headers: config.headers,
-  //     params: config.params,
-  //   }
-  //
-
-  //   config.headers['Content-Type'] = 'application/json'
-  //   /* 如果你需要token */
-  //   // const token = store.state.token || ''
-  //   // if (token) {
-  //   //   config.headers.Authorization = `Bearer ${token}`
-  //   // }
-  //   return config
-  // })
-  // // 设置响应拦截
-  // $axios.onResponse((response) => {
-  //   response.config.endTime = new Date().getTime()
-  //   const status = response.status
-  //
-  //   if (+status === 200) {
-  //     // 打印出每个接口的响应时间，如果慢了就捶后端，让他优化！！！
-  //     console.info(response.config.url,'请求时间',response.config.endTime - response.config.startTime + 'ms'
-  //     )
-  //     // 用于调试
-  //     if (process.env.DEBUG) {
-  //       console.info('$axios.onResponse', response.data)
-  //     }
-  //     // 返回接口数据
-  //     return response.data
-  //   } else {
-  //     // 如果请求失败的，打印出相应的错误信息，更好的修改。
-  //     const responseConfig = response ? response.config : {}
-  //     console.error('响应拦截报错提示： ', {
-  //       url: responseConfig.baseURL + responseConfig.url,
-  //       status: response.status,
-  //       statusText: response.statusText,
-  //       method: responseConfig.method,
-  //       headers: responseConfig.headers,
-  //       data: responseConfig.data,
-  //       params: responseConfig.params,
-  //       responseData: response.data,
-  //     })
-  //   }
-  // })
-  //
-
-  // // 最后返回$axios对象
-  // return $axios
 }
 
-function indexApi($axios) {
+function indexApi(service) {
   return {
-    get: (url, params) => {
-      return $axios.get(url,params)
+    post(url, data) {
+      return service.post(url, data)
     },
+    get(url, params) {
+      return service.get(url, {params})
+    },
+    upload(url, data, onUploadProgress) { // 上传文件
+      return upload(url, data, onUploadProgress)
+    },
+    download(url, params) { // 下载
+      download(url, params)
+    },
+    form(url, fromData, method) { // 提交的参数提实体
+      return service.request({
+        url: uri.getReqBaseUrl() + url,
+        method: method || 'post',
+        data: fromData,
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+    }
   }
 }
 
 export default function({ $axios, store }, inject) {
-  inject('http1', indexApi(axiosConfig($axios)))
+  inject('http', indexApi(axiosConfig()))
 }
