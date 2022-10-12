@@ -104,6 +104,13 @@
         advantage:state=>state.f_advantage
       })
     },
+    async asyncData({$http}){
+      // 稳定服务
+      let res = await $http.get('/main/access/stat')
+      return {
+        server: res.data
+      }
+    },
     mounted () {
       let _this = this
       for (let i = 0; i < 4; i++) {
@@ -112,7 +119,6 @@
         }
       }
       this.setSlideScale(0)
-      this.accessStat()
       window.addEventListener('resize', () => {
         // this.setSlideScale(_this.activeIndex)
       })
@@ -126,14 +132,6 @@
       })
     },
     methods: {
-      // 稳定服务
-      accessStat () {
-        this.$http.get('/main/access/stat', {}).then(({status, data}) => {
-          if (status === 200) {
-            this.server = data
-          }
-        })
-      },
       setSlideScale (i) {
         let _this = this
         this.$nextTick(()=>{
