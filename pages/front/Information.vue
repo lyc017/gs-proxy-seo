@@ -33,10 +33,8 @@
 <script>
 export default {
   name: 'Information',
-  head(){
-    return {
-      title:'行业资讯_动态ip代理地址_代理的动态ip-旋风云'
-    }
+  head() {
+    return this.$const.seo.INFORMATION_MI_LIST
   },
   data () {
     return {

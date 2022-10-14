@@ -44,6 +44,9 @@
         last: null
       }
     },
+    head() {
+      return this.$const.seo.INFORMATION_MI_DETAIL(this.information.title, this.information.content)
+    },
     async asyncData({ route, $http}){
       let res1 = await $http.get(`/main/information/get?id=${route.params.id}`)
       return {

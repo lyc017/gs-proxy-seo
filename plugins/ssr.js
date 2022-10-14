@@ -4,20 +4,27 @@
 
 import Vue from 'vue'
 import '@/static/css/common.less' // 全局样式
+import directive from '@/static/js/directive/index'
+import constIndex from '@/static/js/const/index'
+import VueWeChatTitle from 'vue-wechat-title'
+Vue.use(directive)
+Vue.use(VueWeChatTitle)
+Vue.prototype.$const = constIndex
+
+
 // import App from './App'
 // import http from '@/static/js/axios/http.js'
 // import component from '@/assets/js/component'
 // import uri from '@/static/js/axios/uri'
 
 // import useIndex from '@/assets/js/use/index'
-// import directive from '@/assets/js/directive/index'
-import constIndex from '@/static/js/const/index'
+
 //
 
 // import VueQr from 'vue-qr'
 
 
-import VueWeChatTitle from 'vue-wechat-title'
+
 
 // import '@/assets/js/mock/index'
 // import MetaInfo from 'vue-meta-info'
@@ -29,15 +36,13 @@ import VueWeChatTitle from 'vue-wechat-title'
 // }
 
 // Vue.use(useIndex)
-// Vue.use(directive)
+
 // // 全局组件
 // for (let key in component) {
 //   Vue.use(component[key])
 // }
 // Vue.use(VueQr)`
-Vue.use(VueWeChatTitle)
 
-Vue.prototype.$const = constIndex
 // Vue.prototype.$http = http // 请求
 
 

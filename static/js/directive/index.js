@@ -1,4 +1,4 @@
-import {copy} from '@/assets/js/util/copy'
+import {copy} from '@/static/js/util/copy'
 const vueDirective = {}
 vueDirective.install = function (Vue) {
   // 复制文本
