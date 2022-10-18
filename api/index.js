@@ -19,16 +19,18 @@ export default {
   getReqBaseUrl(apiHostKey) {
     apiHostKey = apiHostKey || 'gs_url' // 默认成gs_url接口
     let domain = store().state.domain
-    if (domain.indexOf('local.') > -1) {
+    if (domain.indexOf('local.') > -1 || domain === '') {
+      this.env.type = HTTP_ENV.DEV
     } else if (domain.indexOf('xms3.') > -1) {
       this.env.type = HTTP_ENV.TEST
     } else {
       this.env.type = HTTP_ENV.PROD
     }
     let url = this.env[this.env.type][apiHostKey]
-    // if (url.indexOf('http') === -1) {
-    //   url = window.location.protocol + url
-    // }
+    if (url.indexOf('http') === -1) {
+      // url = window.location.protocol + url
+      url = 'http:' + url
+    }
     return url
   }
 }

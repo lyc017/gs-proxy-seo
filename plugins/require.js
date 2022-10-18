@@ -13,25 +13,24 @@ const SHOW_LOADING = {
  * 请求前拦截器
  * @type {null}
  */
-function interceptorReq(config, param) {
-  if (param.apiHostKey) {
-    config.baseURL = uri.getReqBaseUrl(param.apiHostKey)
-    delete param.apiHostKey
+function interceptorReq(config, params) {
+  if (params.apiHostKey) {
+    config.baseURL = uri.getReqBaseUrl(params.apiHostKey)
+    delete params.apiHostKey
   } else {
     config.baseURL = uri.getReqBaseUrl()
   }
-  if (param.mock) {
+  if (params.mock) {
     config.baseURL = ''
-    delete param.mock
+    delete params.mock
   }
 
-  if (param.showLoading) {
-    config.showLoading = param.showLoading
+  if (params.showLoading) {
+    config.showLoading = params.showLoading
     loading()
-    delete param.showLoading
+    delete params.showLoading
   }
-
-  return param
+  return params
 }
 
 /**
@@ -122,7 +121,8 @@ function download(url, params) {
 
 function axiosConfig($axios) {
   let config = {
-    baseURL:'http://proxyapi.xms3.4846.com',
+    // http://proxyapi.xms3.4846.com
+    baseURL:'',
     timeout: 1000 * 20,
     withCredentials: true,
     headers: {
@@ -164,9 +164,14 @@ function axiosConfig($axios) {
 function indexApi(service) {
   return {
     post(url, data) {
+      console.log(url,'url')
+      console.log(data,'data1')
       return service.post(url, data)
     },
     get(url, params) {
+      console.log(url,'url')
+      console.log(params,'params')
+        //
       return service.get(url, {params})
     },
     upload(url, data, onUploadProgress) { // 上传文件
