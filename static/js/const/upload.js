@@ -1,4 +1,4 @@
-import uri from '@/assets/js/axios/uri' // 获取全局实例
+import uri from '@/api/index' // 获取全局实例
 
 // 上传文件类型
 export const FILE_TYPE = {

@@ -71,5 +71,29 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: [/^element-ui/],
+    babel:{
+      "plugins": [
+        [
+          "prismjs",
+          {
+            "languages": [
+              "javascript",
+              "css",
+              "java",
+              "cs",
+              "php",
+              "go",
+              "python",
+              "markup"
+            ],
+            "plugins": [
+              "line-numbers"
+            ],
+            "theme": "okaidia",
+            "css": true
+          }
+        ]
+      ],
+    }
   }
 }

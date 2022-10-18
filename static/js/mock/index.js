@@ -1,5 +1,5 @@
-import {HTTP_ENV} from '@/assets/js/const/index'
-import uri from '@/assets/js/axios/uri'
+import {HTTP_ENV} from '@/static/js/const/index'
+import uri from '@/api/index'
 import qs from 'qs'
 
 const Mock = require('mockjs') // 引入mockjs

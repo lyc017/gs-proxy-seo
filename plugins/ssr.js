@@ -6,6 +6,7 @@ import Vue from 'vue'
 import '@/static/css/common.less' // 全局样式
 import directive from '@/static/js/directive/index'
 import constIndex from '@/static/js/const/index'
+
 import VueWeChatTitle from 'vue-wechat-title'
 Vue.use(directive)
 Vue.use(VueWeChatTitle)
@@ -14,10 +15,10 @@ Vue.prototype.$const = constIndex
 
 // import App from './App'
 // import http from '@/static/js/axios/http.js'
-// import component from '@/assets/js/component'
-// import uri from '@/static/js/axios/uri'
 
-// import useIndex from '@/assets/js/use/index'
+// import uri from '@/api/index'
+
+// import useIndex from '@/static/js/use/index'
 
 //
 
@@ -26,7 +27,7 @@ Vue.prototype.$const = constIndex
 
 
 
-// import '@/assets/js/mock/index'
+// import '@/static/js/mock/index'
 // import MetaInfo from 'vue-meta-info'
 // Vue.use(MetaInfo)
 
@@ -37,10 +38,7 @@ Vue.prototype.$const = constIndex
 
 // Vue.use(useIndex)
 
-// // 全局组件
-// for (let key in component) {
-//   Vue.use(component[key])
-// }
+
 // Vue.use(VueQr)`
 
 // Vue.prototype.$http = http // 请求
