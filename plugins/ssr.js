@@ -13,10 +13,7 @@ Vue.use(VueWeChatTitle)
 Vue.prototype.$const = constIndex
 
 
-// import App from './App'
-// import http from '@/static/js/axios/http.js'
 
-// import uri from '@/api/index'
 
 // import useIndex from '@/static/js/use/index'
 

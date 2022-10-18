@@ -17,14 +17,11 @@ function interceptorReq(config, params) {
   if (params.apiHostKey) {
     config.baseURL = uri.getReqBaseUrl(params.apiHostKey)
     delete params.apiHostKey
-  } else {
-    config.baseURL = uri.getReqBaseUrl()
   }
   if (params.mock) {
     config.baseURL = ''
     delete params.mock
   }
-
   if (params.showLoading) {
     config.showLoading = params.showLoading
     loading()
@@ -134,6 +131,7 @@ function axiosConfig($axios) {
   service.interceptors.request.use(config => {
     // 表单提交时数据不做处理
     if (config.headers['Content-Type'] !== 'application/json') {
+      config.baseURL = uri.getReqBaseUrl()
       if (config.method === 'post' && config.data) {
         config.data = qs.parse(config.data)
         let data = interceptorReq(config, config.data)
@@ -164,14 +162,9 @@ function axiosConfig($axios) {
 function indexApi(service) {
   return {
     post(url, data) {
-      console.log(url,'url')
-      console.log(data,'data1')
       return service.post(url, data)
     },
     get(url, params) {
-      console.log(url,'url')
-      console.log(params,'params')
-        //
       return service.get(url, {params})
     },
     upload(url, data, onUploadProgress) { // 上传文件

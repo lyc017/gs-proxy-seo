@@ -14,7 +14,6 @@ export const initMutations = {
 
 export const initActions = {
   nuxtServerInit(store, context) {
-    console.log(789)
     store.commit('setDomain', context.req.headers.host);
   },
 }

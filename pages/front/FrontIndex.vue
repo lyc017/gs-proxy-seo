@@ -55,7 +55,7 @@
                 <div class="fi-center">
                   <h3>高效稳定的服务</h3>
                   <ul class="flex flex-wrap justify-between" ref="serverRef" >
-                    <li v-for="(item, index) in server" :key="index"  >
+                    <li v-for="(item, index) in server" :key="index">
                       <div class="animate__animated " :class="{'animate__rotateIn animate__fadeIn':activeIndex === 3}">{{item.value}}</div>
                       <p>{{item.name}}</p>
                     </li>
