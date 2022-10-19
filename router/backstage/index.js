@@ -1,12 +1,14 @@
 // import member from './member'
 // import finance from './finance'
 // import agent from './agent'
-// import manager from './manager'
+import manager from '@/router/backstage/manager'
+import BackStage from '@/pages/backstage/Index'
+import RightIndex from '@/pages/backstage/RightIndex'
 export default [
   {
     path: '/index',
     name: 'BackStage',
-    component: () => import('@/views/backstage/Index'),
+    component: BackStage,
     children: [
       {
         path: '/index',
@@ -14,7 +16,7 @@ export default [
         meta: {
           title: '旋风云'
         },
-        component: () => import('@/views/backstage/RightIndex'),
+        component: RightIndex,
         children: []
       },
       // {
@@ -36,7 +38,7 @@ export default [
       // ...member,
       // ...finance,
       // ...agent,
-      // ...manager
+      ...manager
     ]
   }
 ]

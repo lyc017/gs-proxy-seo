@@ -15,7 +15,6 @@ Vue.prototype.$const = constIndex
 
 
 
-// import useIndex from '@/static/js/use/index'
 
 //
 
@@ -33,7 +32,7 @@ Vue.prototype.$const = constIndex
 //   // new VConsole()
 // }
 
-// Vue.use(useIndex)
+
 
 
 // Vue.use(VueQr)`
@@ -41,7 +40,6 @@ Vue.prototype.$const = constIndex
 // Vue.prototype.$http = http // 请求
 
 
-// Vue.prototype.uri = uri
 
 // Vue.config.productionTip = false
 // Vue.use(Avatar).use(Empty)

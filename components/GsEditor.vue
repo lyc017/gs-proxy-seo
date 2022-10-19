@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="isClient">
     <!-- 图片上传组件辅助-->
     <gs-upload
       class="editor-uploader"
@@ -9,7 +9,6 @@
       :before-upload="beforeUpload">
     </gs-upload>
     <quill-editor
-      v-if="isClient"
       class="editor"
       v-model="content"
       ref="myQuillEditor"
@@ -52,11 +51,15 @@ export default {
             container: toolbarOptions,
             handlers: {
               image: function (value) {
-                if (value) {
-                  // 触发input框选择图片文件
-                  document.querySelector('.editor-uploader input').click()
-                } else {
-                  this.quill.format('image', false)
+                if (process.client) {
+                  console.log(value)
+                  if (value) {
+                    // console.log(document.querySelector('.editor-uploader input'))
+                //     // 触发input框选择图片文件
+                //     document.querySelector('.editor-uploader input').click()
+                  } else {
+                //     this.quill.format('image', false)
+                  }
                 }
               }
             }
@@ -209,7 +212,7 @@ export default {
   .ql-toolbar.ql-snow,.ql-container.ql-snow{
     border:1px solid #DCDFE6;
   }
-  .ql-container.ql-snow .ql-editor,
+  /*.ql-container.ql-snow .ql-editor,*/
   .ql-container.ql-snow{
     height:calc(100% - 49px);
   }

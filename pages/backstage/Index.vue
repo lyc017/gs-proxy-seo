@@ -1,5 +1,5 @@
 <template>
-  <div class="flex">
+  <div class="backstage-index flex">
     <left-menu :isCollapse="isCollapse"></left-menu>
     <section class="right-content xms-flex-wrap">
       <div class="xms-flex-headerOrBottom">
@@ -17,9 +17,9 @@
 </template>
 
 <script>
-  import LeftMenu from './components/LeftMenu'
-  import TopMenu from './components/TopMenu'
-  import Consult from '@/views/front/components/Consult'
+  import LeftMenu from '@/components/backstage/LeftMenu'
+  import TopMenu from '@/components/backstage/TopMenu'
+  import Consult from '@/components/front/Consult'
 
   export default {
     name: 'BackStateIndex',
@@ -45,10 +45,9 @@
 </script>
 
 <style scoped lang="less">
-  @import '~@/assets/css/base';
   //右边模块
-  .flex {
-    height: 100%;
+  .backstage-index {
+    height: 100vh;
   }
 
   .right-content {

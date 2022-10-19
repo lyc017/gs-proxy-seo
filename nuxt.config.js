@@ -1,4 +1,4 @@
-
+const webpack = require('webpack')
 export default {
   head: {
     title: '动态代理_隧道代理_隧道代理搭建-旋风云',
@@ -79,6 +79,11 @@ export default {
         prettify: false
       }
     },
+    plugins: [
+      new webpack.ProvidePlugin({
+        '$' : 'jquery'
+      })
+    ],
     babel:{
       "plugins": [
         [

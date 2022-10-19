@@ -15,7 +15,6 @@ const GsNoData = {
     Vue.component('gsNoData', gsNoData)
   }
 }
-
 // 上传
 const GsUpload = {
   install: function (Vue) {

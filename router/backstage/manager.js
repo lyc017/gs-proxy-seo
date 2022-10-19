@@ -1,4 +1,6 @@
-// 财务管理
+// 后台管理
+import ArticleMg from '@/pages/backstage/manager/article/Index'
+import CertificationMg from '@/pages/backstage/manager/certification/Index'
 export default [
   {
       path: '/manager/article',
@@ -6,7 +8,7 @@ export default [
       meta: {
         title: '资讯管理'
       },
-      component: () => import('@/views/backstage/manager/article/Index')
+      component: ArticleMg
   },
   {
     path: '/manager/certification',
@@ -14,6 +16,6 @@ export default [
     meta: {
       title: '企业认证'
     },
-    component: () => import('@/views/backstage/manager/certification/Index')
+    component: CertificationMg
   }
 ]

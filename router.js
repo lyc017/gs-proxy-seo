@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import store from '@/store/index'
 import  frontRouter from '@/router/front/index.js'
 
-// import backstageRouter from './backstage/index' // 后台页面
+import backstageRouter from '@/router/backstage/index' // 后台页面
 //
 // // 解决ElementUI导航栏中的vue-router在3.0版本以上重复点菜单报错问题
 // const originalPush = Router.prototype.push
@@ -13,7 +14,6 @@ import  frontRouter from '@/router/front/index.js'
 Vue.use(VueRouter)
 
 let routes = [
-  ...frontRouter
   // {
   //   path: '',
   //   name: 'Index',
@@ -33,9 +33,8 @@ let routes = [
   //   },
   //   component:index
   // },
-  // ...backstageRouter,
-  // ...backstageRouter,
-  // ...frontRouter // 放最后
+  ...backstageRouter,
+  ...frontRouter // 放最后
 ]
 let router = new VueRouter({
   mode: 'history',
@@ -48,9 +47,7 @@ router.beforeEach((to, from, next) => {
     // 如果访问的是不验证登陆的，直接进入下一个页面
     next()
   } else {
-    // console.log('需要校验')
-    // next()
-    store.dispatch('getToken').then((data) => {
+    store().dispatch('getToken').then((data) => {
       if (data) {
         next()
       } else {

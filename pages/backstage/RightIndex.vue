@@ -67,8 +67,6 @@
 </script>
 
 <style scoped lang="less">
-  @import '~@/assets/css/base';
-
   .info {
     font-size: 16px;
     display: flex;
