@@ -71,6 +71,14 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: [/^element-ui/],
+    cache: true,
+    parallel: true,
+    analyze: true, // 请求分析
+    loaders:  {
+      vue: {
+        prettify: false
+      }
+    },
     babel:{
       "plugins": [
         [

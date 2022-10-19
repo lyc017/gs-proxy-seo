@@ -48,15 +48,15 @@ router.beforeEach((to, from, next) => {
     // 如果访问的是不验证登陆的，直接进入下一个页面
     next()
   } else {
-    console.log('需要校验')
-    next()
-    // store.dispatch('getToken').then((data) => {
-    //   if (data) {
-    //     next()
-    //   } else {
-    //     next({path: '/'})
-    //   }
-    // })
+    // console.log('需要校验')
+    // next()
+    store.dispatch('getToken').then((data) => {
+      if (data) {
+        next()
+      } else {
+        next({path: '/'})
+      }
+    })
   }
 })
 
