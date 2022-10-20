@@ -44,15 +44,16 @@
           <a @click="goBuy">立即购买</a>
         </div>
         <div class="tag">
-          <span class="general_badge-item" style="background-color:#FF8F02;">企业钜惠</span>                                    </div>
+          <span class="general_badge-item" style="background-color:#FF8F02;">企业钜惠</span>
+        </div>
       </li>
     </ul>
-    <login :show.sync="login.showSt" :resource="login.resource"></login>
+<!--    <login :show.sync="login.showSt" :resource="login.resource"></login>-->
   </div>
 </template>
 
 <script>
-import Login from '@/components/front/Login'
+// import Login from '@/components/front/Login'
 export default {
   name: 'BottomMenu',
   data () {
@@ -75,7 +76,7 @@ export default {
     }
   },
   components: {
-    Login
+    // Login
   },
   methods: {
     // 登录
@@ -86,20 +87,20 @@ export default {
       }
     },
     goBuy() {
-      if (!this.token || this.token === '') {
-        this.openLogin()
-        return false
-      }
-
-      let user = this.$store.state.loginState.user
-      console.log(user)
-      let {personAuth, companyAuth} = user
-      console.log(personAuth, companyAuth)
-      if (!(personAuth === this.$const.AUTH_STATUS.AUTH_SUCCESS || companyAuth === this.$const.AUTH_STATUS.AUTH_SUCCESS)) {
-        this.gsCertification()
-        return false
-      }
-      this.alert('可以购买')
+      // if (!this.token || this.token === '') {
+      //   this.openLogin()
+      //   return false
+      // }
+      //
+      // let user = this.$store.state.loginState.user
+      // console.log(user)
+      // let {personAuth, companyAuth} = user
+      // console.log(personAuth, companyAuth)
+      // if (!(personAuth === this.$const.AUTH_STATUS.AUTH_SUCCESS || companyAuth === this.$const.AUTH_STATUS.AUTH_SUCCESS)) {
+      //   this.gsCertification()
+      //   return false
+      // }
+      // this.alert('可以购买')
       // let params = Object.assign(this.form, {showLoading: 1})
       // this.$http.form('/payorder/generate', params).then(({status, data}) => {
       //   if (status === 200) {
