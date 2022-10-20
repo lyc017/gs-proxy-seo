@@ -52,7 +52,6 @@
 </script>
 
 <style scoped lang="less">
-  @import '~@/static/css/base';
   .guide-wrap {
     padding: 20px;
 

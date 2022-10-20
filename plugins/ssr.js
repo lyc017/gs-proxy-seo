@@ -1,6 +1,6 @@
 // 主入口----设置需要在服务端渲染的
-// import '@/assets/css/iconfont/iconfont.css'
-// import '@/assets/css/theme/index.css' // element样式
+// import '@/static/css/iconfont/iconfont.css'
+// import '@/static/css/theme/index.css' // element样式
 
 import Vue from 'vue'
 import '@/static/css/common.less' // 全局样式

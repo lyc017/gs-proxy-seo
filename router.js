@@ -1,18 +1,17 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import store from '@/store/index'
-import  frontRouter from '@/router/front/index.js'
-
+import  frontRouter from '@/router/front/index'
+import  activeRouter from '@/router/active/index'
 import backstageRouter from '@/router/backstage/index' // 后台页面
-//
-// // 解决ElementUI导航栏中的vue-router在3.0版本以上重复点菜单报错问题
-// const originalPush = Router.prototype.push
-// Router.prototype.push = function push(location) {
-//   return originalPush.call(this, location).catch(err => err)
-// }
 
 Vue.use(VueRouter)
-
+//获取原型对象上的push函数
+const originalPush = VueRouter.prototype.push
+//修改原型对象中的push方法
+VueRouter.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err)
+}
 let routes = [
   // {
   //   path: '',
@@ -33,6 +32,7 @@ let routes = [
   //   },
   //   component:index
   // },
+  ...activeRouter,
   ...backstageRouter,
   ...frontRouter // 放最后
 ]

@@ -34,12 +34,13 @@ export default {
   plugins: [
     '@/plugins/element-ui',
     { src: "@/plugins/main.js", ssr: false },
+    { src: "@/plugins/component.js", ssr: false },
     '@/plugins/ssr.js',
     '@/plugins/require.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
+  components: false,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [

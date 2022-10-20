@@ -1,4 +1,14 @@
 // 会员中心
+import Certification from '@/pages/backstage/member/Certification'
+import Account from '@/pages/backstage/member/Account'
+import UpdatePwd from '@/pages/backstage/member/UpdatePwd'
+import UpdateMobile from '@/pages/backstage/member/UpdateMobile'
+import MemberAuth from '@/pages/backstage/member/person/MemberAuth'
+import CompanyAuth from '@/pages/backstage/member/company/CompanyAuth'
+import CertAuth from '@/pages/backstage/member/person/CertAuth'
+import BakCompanyAuth from '@/pages/backstage/member/company/BakCompanyAuth'
+import E4fCompanyAuth from '@/pages/backstage/member/company/E4fCompanyAuth'
+import BakCompanyAuthConfirm from '@/pages/backstage/member/company/BakCompanyAuthConfirm'
 export default [
   {
     path: '/member/certification',
@@ -6,7 +16,7 @@ export default [
     meta: {
       title: '实名认证'
     },
-    component: () => import('@/views/backstage/member/Certification')
+    component: Certification
   },
   {
     path: '/member/account',
@@ -14,7 +24,7 @@ export default [
     meta: {
       title: '账号管理'
     },
-    component: () => import('@/views/backstage/member/Account')
+    component: Account
   },
   {
     path: '/member/updatePwd',
@@ -22,7 +32,7 @@ export default [
     meta: {
       title: '修改密码'
     },
-    component: () => import('@/views/backstage/member/UpdatePwd')
+    component: UpdatePwd
   },
   {
     path: '/member/updateMobile',
@@ -30,7 +40,7 @@ export default [
     meta: {
       title: '修改绑定手机'
     },
-    component: () => import('@/views/backstage/member/UpdateMobile')
+    component: UpdateMobile
   },
   {
     path: '/member/certification/memberAuth',
@@ -38,7 +48,7 @@ export default [
     meta: {
       title: '个人认证'
     },
-    component: () => import('@/views/backstage/member/person/MemberAuth')
+    component: MemberAuth
   },
   {
     path: '/member/certification/companyAuth',
@@ -46,7 +56,7 @@ export default [
     meta: {
       title: '企业认证'
     },
-    component: () => import('@/views/backstage/member/company/CompanyAuth')
+    component: CompanyAuth
   },
   {
     path: '/member/certification/person/:authType',
@@ -54,7 +64,7 @@ export default [
     meta: {
       title: '个人认证'
     },
-    component: () => import('@/views/backstage/member/person/CertAuth')
+    component: CertAuth
   },
   {
     path: '/member/certification/company/bak',
@@ -62,7 +72,7 @@ export default [
     meta: {
       title: '打款认证'
     },
-    component: () => import('@/views/backstage/member/company/BakCompanyAuth')
+    component: BakCompanyAuth
   },
   {
     path: '/member/certification/company/e4f',
@@ -70,7 +80,7 @@ export default [
     meta: {
       title: '企业四要素'
     },
-    component: () => import('@/views/backstage/member/company/E4fCompanyAuth')
+    component: E4fCompanyAuth
   },
   {
     path: '/member/certification/company/bakConfirm',
@@ -78,6 +88,6 @@ export default [
     meta: {
       title: '打款确认'
     },
-    component: () => import('@/views/backstage/member/company/BakCompanyAuthConfirm')
+    component: BakCompanyAuthConfirm
   }
 ]

@@ -64,7 +64,6 @@
 </script>
 
 <style scoped lang="less">
-  @import '~@/static/css/base';
   .code-guide-wrap {
     padding: 20px;
 

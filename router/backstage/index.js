@@ -1,6 +1,6 @@
-// import member from './member'
+import member from '@/router/backstage/member'
 // import finance from './finance'
-// import agent from './agent'
+// import agent from '@/router/backstage/agent'
 import manager from '@/router/backstage/manager'
 import BackStage from '@/pages/backstage/Index'
 import RightIndex from '@/pages/backstage/RightIndex'
@@ -35,7 +35,7 @@ export default [
       //   },
       //   component: () => import('@/views/test/Mock')
       // },
-      // ...member,
+      ...member,
       // ...finance,
       // ...agent,
       ...manager

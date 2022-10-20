@@ -1,22 +1,28 @@
 <template>
-  <div v-if="isClient">
+  <div>
     <!-- 图片上传组件辅助-->
+
     <gs-upload
-      class="editor-uploader"
-      :show="false"
-      @success="uploadSuccess"
-      @error="uploadError"
-      :before-upload="beforeUpload">
+        :show="false"
+        class="editor-uploader"
+        @success="uploadSuccess"
+        @error="uploadError"
+        :before-upload="beforeUpload"
+    >
     </gs-upload>
-    <quill-editor
-      class="editor"
-      v-model="content"
-      ref="myQuillEditor"
-      :options="editorOption"
-      @blur="onEditorBlur($event)"
-      @focus="onEditorFocus($event)"
-      @change="onEditorChange($event)">
-    </quill-editor>
+    <div v-show="isClient">
+      <quill-editor
+          class="editor"
+          v-model="content"
+          ref="myQuillEditor"
+          :options="editorOption"
+          @blur="onEditorBlur($event)"
+          @focus="onEditorFocus($event)"
+          @change="onEditorChange($event)"
+      >
+      </quill-editor>
+    </div>
+
   </div>
 </template>
 <script>
@@ -24,7 +30,6 @@
 import 'quill/dist/quill.core.css'
 import 'quill/dist/quill.snow.css'
 import 'quill/dist/quill.bubble.css'
-
 const toolbarOptions = [
   ['bold', 'italic', 'underline', 'strike'], // 加粗 斜体 下划线 删除线
   [{ header: 1 }, { header: 2 }], // 1、2 级标题
@@ -36,7 +41,7 @@ const toolbarOptions = [
   [{ align: [] }], // 对齐方式
   ['link', 'image'] // 链接、图片、视频
 ]
-
+const { quillEditor } = require('vue-quill-editor')
 export default {
   data () {
     return {
@@ -52,13 +57,11 @@ export default {
             handlers: {
               image: function (value) {
                 if (process.client) {
-                  console.log(value)
                   if (value) {
-                    // console.log(document.querySelector('.editor-uploader input'))
                 //     // 触发input框选择图片文件
-                //     document.querySelector('.editor-uploader input').click()
+                    document.querySelector('.editor-uploader input').click()
                   } else {
-                //     this.quill.format('image', false)
+                    this.quill.format('image', false)
                   }
                 }
               }
@@ -84,12 +87,9 @@ export default {
       default: 4000 // kb
     }
   },
+  components:{quillEditor},
   mounted() {
-    if (process.client) {
-      const { quillEditor } = require('vue-quill-editor')
-      this.$options.components = { quillEditor }
-      this.isClient = true
-    }
+    this.isClient = true
   },
   methods: {
     onEditorBlur () {
